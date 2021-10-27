@@ -19,13 +19,17 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
-const ConnectButton = styled(WalletDialogButton)``;
+const ConnectButton = styled(WalletDialogButton)`
+`;
 
-const CounterText = styled.span``; // add your styles here
+const CounterText = styled.span`
+`; // add your styles here
 
-const MintContainer = styled.div``; // add your styles here
+const MintContainer = styled.div`
+`; // add your styles here
 
-const MintButton = styled(Button)``; // add your styles here
+const MintButton = styled(Button)`
+`; // add your styles here
 
 export interface HomeProps {
   candyMachineId: anchor.web3.PublicKey;
@@ -166,9 +170,19 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-    <main>
+    <main style={{
+      background: "linear-gradient(#D327FC, #11EDAB)",
+      fontFamily: 'Insolata, monospace', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      minHeight: '100vh'
+      }}>
+      {wallet && <h1>Mint a Parrot!</h1>}
+
       {wallet && (
-        <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
+        <p>Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
       )}
 
       {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
